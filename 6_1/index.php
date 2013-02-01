@@ -11,7 +11,7 @@
         <title></title>
     </head>
     <body>
-        
+        <!-- NICE LABEL --->
         <form action="index.php" method="post">
             <label for="studio">Studio:</label>
             <select name="studio">
