@@ -1,0 +1,38 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+.content {
+	width:700px;
+	margin:0 auto;
+	padding:15px 10px;
+	text-align: center;
+}
+
+.navigation ul li {
+	display: inline; 
+}
+
+.searchForm {
+	width:690px;
+	text-align: center;
+	padding:10px 0 10px 0;
+}
+
+.searchForm p {
+	padding:2px;
+}
+
+.resultTable {
+	border:1px solid black;
+	border-collapse: collapse;
+	width:690px;
+}
+
+.resultTable td {
+	border:1px solid black;
+	text-align: center;
+}
+
+
