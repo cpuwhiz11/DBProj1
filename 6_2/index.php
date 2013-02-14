@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/include/css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>6.1</title>
+        <title>6.2</title>
     </head>
     <body>
         
@@ -89,7 +89,7 @@
 						echo "<thead>";
 						echo "<tr>";
 						echO "<td>Title</td>";
-						echo "<td>Length</td>";
+						echo "<td>Length (minutes)</td>";
 						echo "</tr>";
 						echo "</thead>";
 						echo "<tbody>";
@@ -113,17 +113,18 @@
 						echo "</table>";
 
 					}
+					else {
+						
+						echo "<p>No results found!</p>";
+						
+					}
 					
 				}
 				else {
 					
-					echo "<p>No results found!</td>"; 
+					echo "<p>No results found!</p>"; 
 					
 				}
-
-				echo "<pre>";
-				print_r($searchResult);
-				echo "</pre>";
 
 			?>
 		</div>

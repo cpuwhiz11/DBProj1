@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/include/css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>6.1</title>
+        <title>6.11</title>
     </head>
     <body>
         
@@ -79,7 +79,10 @@
 				$selectedYear	= $_POST["year"];
 				
 				if(strlen($selectedStudio) > 0 && strlen($selectedYear) > 0) {
-					$db->query("SELECT * FROM Movies WHERE studioName='" . $selectedStudio . "' AND year=" . $selectedYear);
+					$db->query("SELECT * 
+								FROM Movies 
+								WHERE studioName='" . $selectedStudio . "' AND year=" . $selectedYear .
+							    " ORDER BY length ASC, title ASC");
 
 					$searchResult = $db->getAssocResult();
 
@@ -117,18 +120,19 @@
 						echo "</table>";
 
 					}
+					else {
+						
+						echo "<p>No results found!</p>";
+						
+					}
 					
 				}
 				else {
 					
-					echo "<p>No results found!</td>"; 
+					echo "<p>No results found!</p>"; 
 					
 				}
-
-				echo "<pre>";
-				print_r($searchResult);
-				echo "</pre>";
-
+			
 			?>
 		</div>
     </body>

@@ -117,17 +117,18 @@
 						echo "</table>";
 
 					}
+					else {
+						
+						echo "<p>No results found!</p>"; 
+						
+					}
 					
 				}
 				else {
 					
-					echo "<p>No results found!</td>"; 
+					echo "<p>No results found!</p>"; 
 					
 				}
-
-				echo "<pre>";
-				print_r($searchResult);
-				echo "</pre>";
 
 			?>
 		</div>
