@@ -29,31 +29,7 @@
 				</ul>				
 			</div>
 			<div class="searchForm">
-				<p>Select a movie studio and year to find the relevant movies.</p>
-				<form action="index.php" method="post">
-
-					<select name="studio">
-						<option value="">Select a studio...</option>
-
-						<?php
-
-							$db->query("SELECT DISTINCT name FROM Studio");
-
-							$studios = $db->getAssocResult();
-
-							foreach($studios as $studio) {
-
-								echo "<option value='" . $studio["name"] . "'>" . $studio["name"] . "</option>\n";
-
-							}
-
-						?>
-
-					</select>
-
-					<input type="submit" value="Search"/>
-
-				</form>
+				<p>Total length of film from each studio.</p>
 			</div>
 
 			<?php
