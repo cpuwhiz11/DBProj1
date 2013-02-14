@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/include/css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>6.1</title>
+        <title>6.32</title>
     </head>
     <body>
         
@@ -33,43 +33,43 @@
 			</div>
 
 			<?php
-                                    $db->query("SELECT MovieExec.name, SUM(Movies.length) as Length
-                                                FROM Movies
-                                                INNER JOIN MovieExec 
-                                                ON Movies.`producerC#` = MovieExec.`cert#`
-                                                GROUP BY MovieExec.name");
+				$db->query("SELECT MovieExec.name, SUM(Movies.length) as Length
+							FROM Movies
+							INNER JOIN MovieExec 
+							ON Movies.`producerC#` = MovieExec.`cert#`
+							GROUP BY MovieExec.name");
 
-                                    $searchResult = $db->getAssocResult();
+				$searchResult = $db->getAssocResult();
 
-                                    if(count($searchResult) > 0) {
+				if(count($searchResult) > 0) {
 
-                                            echo "<table class='resultTable'>";
-                                            echo "<thead>";
-                                            echo "<tr>";
-                                            echo "<td>Name</td>";
-                                            echo "<td>Length</td>";
-                                            echo "</tr>";
-                                            echo "</thead>";
+						echo "<table class='resultTable'>";
+						echo "<thead>";
+						echo "<tr>";
+						echo "<td>Name</td>";
+						echo "<td>Length</td>";
+						echo "</tr>";
+						echo "</thead>";
 					    echo "<tbody>";
                                         
-                                            foreach($searchResult as $result) {
+						foreach($searchResult as $result) {
 
-                                                    echo "<tr>";
-                                                    echo "<td>" . $result["name"] . "</td>";
-                                                    echo "<td>" . $result["Length"] . "</td>";
-                                                    echo "</tr>";
+								echo "<tr>";
+								echo "<td>" . $result["name"] . "</td>";
+								echo "<td>" . $result["Length"] . "</td>";
+								echo "</tr>";
 
-                                            }
+						}
 
-                                            echo "</tbody>";
-                                            echo "</table>";
+						echo "</tbody>";
+						echo "</table>";
 
-                                    }
-                                    else {
+					}
+					else {
 
-                                            echo "<p>No results found!</p>"; 
+							echo "<p>No results found!</p>"; 
 
-                                    }
+					}
 
 			?>
 		</div>

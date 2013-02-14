@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/include/css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>6.1</title>
+        <title>6.12</title>
     </head>
     <body>
         
@@ -29,11 +29,11 @@
 				</ul>				
 			</div>
 			<div class="searchForm">
-				<p>Select a movie.</p>
+				<p>Select a movie to view its producer.</p>
 				<form action="index.php" method="post">
 
 					<select name="movie">
-						<option value="">Select a Movie...</option>
+						<option value="">Select a movie...</option>
 
 						<?php
 
@@ -62,10 +62,10 @@
 
 				if(strlen($selectedMovie) > 0) {
 					$db->query("SELECT name 
-                                            FROM MovieExec 
-                                            INNER JOIN Movies 
-                                            ON `producerC#` = `cert#`
-                                            WHERE title ='" . $selectedMovie . "'");
+								FROM MovieExec 
+								INNER JOIN Movies 
+									ON `producerC#` = `cert#`
+								WHERE title ='" . $selectedMovie . "'");
 
 					$searchResult = $db->getAssocResult();
 
@@ -105,10 +105,6 @@
 					echo "<p>No results found!</td>"; 
 					
 				}
-
-				echo "<pre>";
-				print_r($searchResult);
-				echo "</pre>";
 
 			?>
 		</div>

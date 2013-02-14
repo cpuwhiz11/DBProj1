@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/include/css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>6.1</title>
+        <title>6.21</title>
     </head>
     <body>
         
@@ -46,14 +46,21 @@
                                             echo "<thead>";
                                             echo "<tr>";
                                             echo "<td>Name</td>";
+											echo "<td>Count</td>";
                                             echo "</tr>";
                                             echo "</thead>";
-					    echo "<tbody>";
+											echo "<tbody>";
                                         
                                             foreach($searchResult as $result) {
 
                                                     echo "<tr>";
-                                                    echo "<td>" . $r[0] . "</td>";
+                                                    
+													foreach($result as $r) {
+
+														echo "<td>" . $r . "</td>";
+
+													}
+													
                                                     echo "</tr>";
 
                                             }

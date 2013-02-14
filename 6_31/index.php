@@ -58,56 +58,46 @@
 
 			<?php
 
-				$selectedStudio = $_POST["studio"];
-				
-				if(strlen($selectedStudio) > 0) {
-					$db->query("SELECT studioName, SUM(length) 
-								FROM Movies 
-								WHERE studioName='" . $selectedStudio . "'");
+				$db->query("SELECT studioName, SUM(length) 
+							FROM Movies 
+							GROUP BY studioName");
 
-					$searchResult = $db->getAssocResult();
+				$searchResult = $db->getAssocResult();
 
-					if(count($searchResult) > 0) {
+				if(count($searchResult) > 0) {
 
-						echo "<table class='resultTable'>";
-						echo "<thead>";
+					echo "<table class='resultTable'>";
+					echo "<thead>";
+					echo "<tr>";
+					echO "<td>Studio Name</td>";
+					echo "<td>Sum of all movie lengths (minutes)</td>";
+					echo "</tr>";
+					echo "</thead>";
+					echo "<tbody>";
+
+					foreach($searchResult as $result) {
+
 						echo "<tr>";
-						echO "<td>Studio Name</td>";
-						echo "<td>Sum of all movie lengths (minutes)</td>";
-						echo "</tr>";
-						echo "</thead>";
-						echo "<tbody>";
 
-						foreach($searchResult as $result) {
+						foreach($result as $r) {
 
-							echo "<tr>";
-
-							foreach($result as $r) {
-
-								echo "<td>" . $r . "</td>";
-
-							}
-
-							echo "</tr>";
-
+							echo "<td>" . $r . "</td>";
 
 						}
 
-						echo "</tbody>";
-						echo "</table>";
+						echo "</tr>";
+
 
 					}
-					else {
-						
-						echo "<p>No results found!</p>"; 
-						
-					}
-					
+
+					echo "</tbody>";
+					echo "</table>";
+
 				}
 				else {
-					
+
 					echo "<p>No results found!</p>"; 
-					
+
 				}
 
 			?>

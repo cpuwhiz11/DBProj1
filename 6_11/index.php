@@ -29,7 +29,7 @@
 				</ul>				
 			</div>
 			<div class="searchForm">
-				<p>Select a movie studio and year to find the relevant movies.</p>
+				<p>Select a movie studio and year to find the relevant movies (sorted by length then title).</p>
 				<form action="index.php" method="post">
 
 					<select name="studio">

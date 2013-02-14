@@ -9,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="/include/css/styles.css" rel="stylesheet" type="text/css"/>
-        <title>6.1</title>
+        <title>6.14</title>
     </head>
     <body>
         
@@ -33,43 +33,50 @@
 			</div>
 
 			<?php
-                                    $db->query("SELECT ms1.name, ms2.name
-                                                FROM MovieStar ms1, MovieStar ms2
-                                                WHERE ms1.address = ms2.address AND
-                                                      ms1.name > ms2.name");
+				
+				$db->query("SELECT ms1.name as star1, ms2.name as star2
+							FROM MovieStar ms1
+							INNER JOIN MovieStar ms2
+								ON ms1.address = ms2.address
+							WHERE ms1.name > ms2.name");
+				
+				$searchResult = $db->getAssocResult();
 
-                                    $searchResult = $db->getAssocResult();
+				if(count($searchResult) > 0) {
 
-                                    if(count($searchResult) > 0) {
+						echo "<table class='resultTable'>";
+						echo "<thead>";
+						echo "<tr>";
+						echo "<td>Name 1</td>";
+						echo "<td>Name 2</td>"; 
+						echo "</tr>";
+						echo "</thead>";
+						echo "<tbody>";
 
-                                            echo "<table class='resultTable'>";
-                                            echo "<thead>";
-                                            echo "<tr>";
-                                            echo "<td>Name 1</td>";
-                                            echo "<td>Name 2</td>"; 
-                                            echo "</tr>";
-                                            echo "</thead>";
-					    echo "<tbody>";
-                                        
-                                            foreach($searchResult as $result) {
+						foreach($searchResult as $result) {
 
-                                                    echo "<tr>";
-                                                    echo "<td>" . $r[0] . "</td>";
-                                                    echo "<td>" . $r[1] . "</td>";
-                                                    echo "</tr>";
+								echo "<tr>";
+								
+								foreach($result as $r) {
 
-                                            }
+									echo "<td>" . $r . "</td>";
 
-                                            echo "</tbody>";
-                                            echo "</table>";
+								}
+								
+								echo "</tr>";
 
-                                    }
-                                    else {
+						}
 
-                                            echo "<p>No results found!</p>"; 
+						echo "</tbody>";
+						echo "</table>";
 
-                                    }
+				}
+				else {
 
+						echo "<p>No results found!</p>"; 
+
+				}
+				
 			?>
 		</div>
     </body>
